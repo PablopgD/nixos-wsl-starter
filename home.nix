@@ -46,6 +46,10 @@
 
     # core languages
     rustup
+    go
+    bun
+    gleam
+    python3
 
     # rust stuff
     cargo-cache
@@ -141,8 +145,8 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = ""; # FIXME: set your git email
-      userName = ""; #FIXME: set your git username
+      userEmail = "ppablo5@hotmail.com"; # FIXME: set your git email
+      userName = "Zirus"; #FIXME: set your git username
       extraConfig = {
         # FIXME: uncomment the next lines if you want to be able to clone private https repos
         # url = {
@@ -170,7 +174,7 @@ in {
     fish = {
       enable = true;
       # FIXME: run 'scoop install win32yank' on Windows, then add this line with your Windows username to the bottom of interactiveShellInit
-      # fish_add_path --append /mnt/c/Users/<Your Windows Username>/scoop/apps/win32yank/0.1.1
+      # fish_add_path --append /mnt/c/Users/Zirus/scoop/apps/win32yank/0.1.1
       interactiveShellInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
@@ -183,6 +187,8 @@ in {
           + "/extras/kanagawa.fish")}
 
         set -U fish_greeting
+        fish_add_path --append /mnt/c/Users/Zirus/scoop/apps/win32yank/0.1.1
+
       '';
       functions = {
         refresh = "source $HOME/.config/fish/config.fish";
@@ -199,6 +205,10 @@ in {
       shellAbbrs =
         {
           gc = "nix-collect-garbage --delete-old";
+        }
+        # Update System
+        // {
+          nix-update = "sudo nixos-rebuild switch --flake ~/configuration";
         }
         # navigation shortcuts
         // {
@@ -225,7 +235,6 @@ in {
         };
       shellAliases = {
         jvim = "nvim";
-        lvim = "nvim";
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
         pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
         explorer = "/mnt/c/Windows/explorer.exe";
