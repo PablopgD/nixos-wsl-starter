@@ -31,6 +31,21 @@
     vim
     wget
     zip
+
+    # core languages
+    rustup
+    go
+    bun
+    gleam
+    python3
+
+
+    # database extras
+    atlas
+    sqlc
+
+
+
   ];
 
   stable-packages = with pkgs; [
@@ -44,12 +59,7 @@
     gh # for bootstrapping
     just
 
-    # core languages
-    rustup
-    go
-    bun
-    gleam
-    python3
+   
 
     # rust stuff
     cargo-cache
